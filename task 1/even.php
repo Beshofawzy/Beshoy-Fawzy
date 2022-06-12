@@ -37,6 +37,8 @@
           } else {
             echo "$number is ODD NUMBER";
           }
+
+          
         }
         ?>
       </div>

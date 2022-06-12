@@ -74,19 +74,15 @@ $users = [
         <thead>
             <tr>
                 <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
             </tr>
-        </thead>
 
+        </thead>
         <tbody>
-            <?php foreach ($users as $users) { ?>
+            <?php foreach ($users as $user) { ?>
                 <tr>
-                    <th scope="row"><? ?></th>
-                    <td><?  ?></td>
-                    <td><?  ?></td>
+                    <th scope="row"></th>
+                    <td><?php $user['id'] ?>  ?></td>
+                    <td><?php $user['name'] ?>  </td>
                     <td><?  ?></td>
                     <td><?  ?></td>
                 </tr>
