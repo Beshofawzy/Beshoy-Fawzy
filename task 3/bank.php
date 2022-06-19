@@ -1,7 +1,6 @@
 <?php
 
 if ($_GET) {
-
     $name = $_GET['name'];
     $amount = $_GET['amount'];
     $year = $_GET['years'];
@@ -12,6 +11,7 @@ if ($_GET) {
     } else {
         $interest = $amount * 0.15 * $year;
     }
+
 
     $total = $amount + $interest;
 
@@ -37,16 +37,16 @@ if ($_GET) {
 <body style="text-align: center;">
     <h1 style="color: orange;">Bank</h1>
     <form method="get">
-        <input type="text" name="name" placeholder="Name">
-        <input type="Number" name="amount" placeholder="Amount">
-        <input type="Number" name="years" placeholder="Years of Loan">
-        <button type="button" class="btn btn-warning">Calculate</button>
+        <input type="text" name="name" placeholder="Name" value="<?= $_GET["name"] ?? " " ?> ">
+        <input type="Number" name="amount" placeholder="Amount" value="<?= $_GET["amount"] ?? " " ?>">
+        <input type="Number" name="years" placeholder="Years of Loan" value="<?= $_GET["years"] ?? " " ?>">
+        <button type="submit" class="btn btn-warning">Calculate</button>
         <br><br>
 
-        <p> your name is : <?= $name ?></p>
-        <p> interest rate : <?= $interest ?></p>
-        <p> Loan after interest : <?= $total ?></p>
-        <p> monthly : <?= $monthly ?></p>
+        <p> Your Name Is : <?= $name ?? "" ?> </p>
+        <p> Interest Rate : <?= $interest ?? "" ?> </p>
+        <p> Loan After Interest : <?= $total ?? "" ?> </p>
+        <p> Monthly : <?= $monthly ?? "" ?></p>
 
 
     </form>

@@ -35,7 +35,8 @@ $users = [
         'activities' => [
             "school" => 'painting',
             'home' => 'drawing'
-        ]
+        ],
+
 
     ],
     (object)[
@@ -50,13 +51,44 @@ $users = [
         'activities' => [
             "school" => 'painting',
             'home' => 'drawing'
-        ]
+        ],
 
     ],
+
 ];
 
-?>
+$table = "<table class='table table-white'>
+            <thead>";
+foreach ($users[0] as $property => $value) {
+    $table .=  "<th>{$property}</th>";
+}
+$table .= "</thead>
+            <tbody>";
+foreach ($users as $index => $user) {
+    $table .=  "<tr>";
+    foreach ($user as $property => $value) {
+        $table .= "<td>";
+        if (gettype($value) == 'array' || gettype($value) == 'object') {
+            foreach ($value as $propertyOrKey => $B) {
+                if ($propertyOrKey == 'gender') {
+                    if ($B == 'm')
+                        $B = 'male';
+                    else
+                        $B = 'female';
+                }
+                $table .= $B;
+            }
+        } else {
+            $table .= $value;
+        }
+        $table .= "</td>";
+    }
+    $table .=   "</tr>";
+}
 
+$table .= "</tbody>
+        </table>";
+?>
 <!doctype html>
 <html lang="en">
 
@@ -70,30 +102,7 @@ $users = [
 </head>
 
 <body>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col"></th>
-            </tr>
-
-        </thead>
-        <tbody>
-            <?php foreach ($users as $user) { ?>
-                <tr>
-                    <th scope="row"></th>
-                    <td><?php $user['id'] ?>  ?></td>
-                    <td><?php $user['name'] ?>  </td>
-                    <td><?  ?></td>
-                    <td><?  ?></td>
-                </tr>
-            <?php } ?>
-
-        </tbody>
-    </table>
-
-
-
-
+    <?= $table; ?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
